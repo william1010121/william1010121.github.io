@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Hexo
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/colorquote.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>HEXO</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h1 id="c-基礎語法"><a href="#c-基礎語法" class="headerlink" title="c++ 基礎語法"></a>c++ 基礎語法</h1><ul>
+<li><a href="/basic/basic_info">basic info</a></li>
+<li><a href="/basic/data_type">data type</a></li>
+<li><a href="/basic/if_statement">if statments</a></li>
+<li><a href="/basic/loop_statement">loop statements</a></li>
+</ul>
+<h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
+<li>function </li>
+<li>struct/class</li>
+</ul>
+<h1 id="c-基礎演算法"><a href="#c-基礎演算法" class="headerlink" title="c++ 基礎演算法"></a>c++ 基礎演算法</h1><ul>
+<li>sort (排序法)</li>
+<li>binary serch(二分搜尋法)</li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<article id="page">
+  <h1></h1>
+  <h1 id="條件判斷式-if-statements"><a href="#條件判斷式-if-statements" class="headerlink" title="條件判斷式(if statements)"></a>條件判斷式(if statements)</h1><hr>
+<h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><p><code>if</code> 語法跟<code>for</code>語法是<code>c++</code>中最重要的兩個語法，現在先來看<code>if</code>語法<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// style 1</span></span><br><span class="line"><span class="keyword">if</span>( 條件成立 ) &#123;</span><br><span class="line">  執行以下內容</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// sytle 2</span></span><br><span class="line"><span class="keyword">if</span>( 條件<span class="number">1</span>成立 ) &#123;</span><br><span class="line">  持行以下內容(條件<span class="number">1</span>成立)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  執行以下內容(條件<span class="number">1</span>成立)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// style 3</span></span><br><span class="line"><span class="keyword">if</span>( 條件<span class="number">1</span>成立 ) &#123;</span><br><span class="line">  持行以下內容(條件<span class="number">1</span>成立)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(條件<span class="number">2</span>成立) &#123;</span><br><span class="line">  執行以下內容(條件<span class="number">1</span>不成立、條件<span class="number">2</span>成立)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  執行以下內容（條件<span class="number">1</span>不成立、條件<span class="number">2</span>不成立)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="布林值邏輯運算子"><a href="#布林值邏輯運算子" class="headerlink" title="布林值邏輯運算子"></a>布林值邏輯運算子</h2><p><code>if</code>成立條件是看<code>if( ... )</code>內的條件出來是否<code>=0</code>如果是<code>0</code> 的話就不成立，其他都是成立的<br><blockquote class="colorquote info"><p>  <code>if( -1)</code>是成立的喔<br>  請玩玩看以下程式碼<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a;</span><br><span class="line">  std::cin &gt;&gt; a;</span><br><span class="line">  <span class="keyword">if</span> (a) &#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+</blockquote></p>
+<p>假設有兩個<code>bool</code>值<code>a</code>, <code>b</code>, <code>true(1)</code>代表成立,<code>false(0)</code>代表不成立</p>
+<ol>
+<li><code>&amp;&amp; (and)</code> 成立條件: <code>a</code>跟<code>b</code>都要為<code>true</code></li>
+<li><code>|| (or)</code> 成立條件;:<code>a</code>跟<code>b</code>至少有一個為<code>true</code></li>
+<li><code>^ (xor)</code> 成立條件:<code>a</code>,<code>b</code>一個<code>true</code>一個<code>false</code></li>
+<li><code>! (not)</code> : 如字面意思，<code>true</code>$\rightarrow$ <code>false</code>,<code>false</code>$\rightarrow$<code>true</code></li>
+</ol>
+<p>更詳細的可以看<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E9%82%8F%E8%BC%AF%E9%96%98">wiki 真值表</a></p>
+<hr>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a015">a015</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> h; cin &gt;&gt; h;</span><br><span class="line">  <span class="keyword">if</span>( h &gt;= <span class="number">15</span> ) &#123;</span><br><span class="line">    cout &lt;&lt; h<span class="number">-15</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>( h &lt; <span class="number">15</span> ) &#123;</span><br><span class="line">    cout &lt;&lt; (h+<span class="number">24</span>)<span class="number">-15</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="補充-關係運算子"><a href="#補充-關係運算子" class="headerlink" title="補充(關係運算子)"></a>補充(關係運算子)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(條件一 ? 成立回傳的值 : 不成立回傳的值);</span><br><span class="line">(<span class="number">2</span> &gt; <span class="number">3</span> ? <span class="string">&quot;YES&quot;</span> : <span class="string">&quot;NO&quot;</span>) <span class="comment">// &quot;NO&quot;</span></span><br><span class="line">(<span class="number">4</span> &gt; <span class="number">3</span> ? <span class="string">&quot;YES&quot;</span> : <span class="string">&quot;NO&quot;</span>) <span class="comment">// &quot;YES&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h2><p><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a017">a017</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a021">a021</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a029">a029</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a019">a019</a></p>
+<hr>
+<h2 id="目前學會的知識"><a href="#目前學會的知識" class="headerlink" title="目前學會的知識"></a>目前學會的知識</h2><ul>
+<li>輸入輸出</li>
+<li><code>if</code> 條件判斷</li>
+</ul>
+<hr>
+<h2 id="實作-剪刀石頭布"><a href="#實作-剪刀石頭布" class="headerlink" title="實作(剪刀石頭布)"></a>實作(剪刀石頭布)</h2><p>請判斷兩位玩家(A, B)剪刀石頭布的勝負(剪刀=0, 石頭=1, 布=2)</p>
+<p><strong>輸入:</strong> 輸入兩個數字<br><strong>輸出:</strong> 請輸出獲勝的玩家</p>
+
+</article>
+
+<div id="paginator">
+  
+</div>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="w"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>william</div>
+      <div>2024-05-03</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+    <script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
+

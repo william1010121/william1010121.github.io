@@ -1,0 +1,68 @@
+@charset "UTF-8";
+blockquote {
+  position: static;
+  font-family: serif;
+  font-size: 1.1em;
+  padding: 10px 20px 10px 54px;
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 5px solid #ee6e73; }
+  blockquote:before {
+    content: "\f10d";
+    position: relative;
+    top: 20px;
+    left: -40px;
+    color: #e2e2e2;
+    font-size: 32px;
+    font-family: FontAwesome;
+    text-align: center; }
+  blockquote footer {
+    font-size: inherit;
+    margin: 1em 0;
+    font-family: sans-serif; }
+    blockquote footer cite:before {
+      content: "—";
+      padding: 0 0.5em; }
+
+.colorquote {
+  position: relative;
+  padding: 0.1em 1.5em;
+  color: #4a4a4a;
+  margin-bottom: 1em; }
+  .colorquote:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: -14.5px;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    background-size: 16px 16px;
+    background-position: 4px 4px;
+    background-repeat: no-repeat; }
+  .colorquote.info {
+    border-color: #209cee;
+    background-color: #def0fd; }
+    .colorquote.info:before {
+      background-color: #209cee;
+      background-image: url("../images/info.svg"); }
+  .colorquote.success {
+    border-color: #23d160;
+    background-color: #cbf6da; }
+    .colorquote.success:before {
+      background-color: #23d160;
+      background-image: url("../images/check.svg"); }
+  .colorquote.warning {
+    border-color: #ffdd57;
+    background-color: #fff6d1; }
+    .colorquote.warning:before {
+      background-color: #ffdd57;
+      background-image: url("../images/question.svg"); }
+  .colorquote.danger {
+    border-color: #ff3860;
+    background-color: #ffb3c2; }
+    .colorquote.danger:before {
+      background-color: #ff3860;
+      background-image: url("../images/exclamation.svg"); }
