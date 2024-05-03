@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Hexo
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/colorquote.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>HEXO</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h1 id="c-基礎語法"><a href="#c-基礎語法" class="headerlink" title="c++ 基礎語法"></a>c++ 基礎語法</h1><ul>
+<li><a href="/basic/basic_info">basic info</a></li>
+<li><a href="/basic/data_type">data type</a></li>
+<li><a href="/basic/if_statement">if statments</a></li>
+<li><a href="/basic/loop_statement">loop statements</a></li>
+</ul>
+<h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
+<li>function </li>
+<li>struct/class</li>
+</ul>
+<h1 id="c-基礎演算法"><a href="#c-基礎演算法" class="headerlink" title="c++ 基礎演算法"></a>c++ 基礎演算法</h1><ul>
+<li>sort (排序法)</li>
+<li>binary serch(二分搜尋法)</li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<article id="page">
+  <h1></h1>
+  <h1 id="迴圈-loop-statement"><a href="#迴圈-loop-statement" class="headerlink" title="迴圈(loop statement)"></a>迴圈(loop statement)</h1><h1 id="while-condition"><a href="#while-condition" class="headerlink" title="$while(condition)$"></a>$while(condition)$</h1><h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( 條件 ) &#123;</span><br><span class="line">  當條件成立時執行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<center>
+<div id="flowchart-0" class="flow-chart"></div>
+</center>
+
+
+<hr>
+<h1 id="for-start-check-do"><a href="#for-start-check-do" class="headerlink" title="$for(start; check; do)$"></a>$for(start; check; do)$</h1><h2 id="語法-1"><a href="#語法-1" class="headerlink" title="語法"></a>語法</h2><p><code>for</code> 是大部分程式最主要的部分，透過<code>for</code>可以做出許多令人感嘆的操作，但也因為他的通用性，所以對於新手來說會有一些複雜，以下是<code>for</code>的語法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( 初始條件 ; 循環開始時的判斷條件 ; 每次循環結束時的操作 )</span><br></pre></td></tr></table></figure>
+<blockquote class="colorquote danger"><p><code>for</code>只能<strong>恰好</strong>有兩個分號<code>;</code>，所以就算什麼都不寫，<code>for</code>迴圈也需要<code>for(;;)</code></p>
+</blockquote>
+<blockquote class="colorquote info"><p><code>for</code>裡面也可以寫<code>for</code>, <code>if</code>, <code>while</code></p>
+</blockquote>
+<h2 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( 出生; 是否死亡; 生活天數++ ) &#123;</span><br><span class="line">  <span class="keyword">if</span>( 年齡 &lt;= <span class="number">8</span> ) &#123;</span><br><span class="line">    愉快的生活  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(年齡 &lt;= <span class="number">18</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>( 年齡 &lt;= <span class="number">15</span> ) &#123;</span><br><span class="line">      青春期行為;</span><br><span class="line">      快速成長;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span>( <span class="number">15</span> &lt;= 年齡 &amp;&amp; 年齡 &lt;= <span class="number">18</span>) &#123;</span><br><span class="line">      讀書;</span><br><span class="line">      準備考大學;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>( 上大學中 )</span><br><span class="line">      上大學;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      工作;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(還有事情沒有做完) &#123;</span><br><span class="line">    做完一件事;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div id="flowchart-1" class="flow-chart"></div>
+
+<p>其中<strong>每天生活</strong>就是<code>for</code>回圈內的所有操作</p>
+<hr>
+<h2 id="break-continue"><a href="#break-continue" class="headerlink" title="break/continue"></a>break/continue</h2><h3 id="break"><a href="#break" class="headerlink" title="break"></a><code>break</code></h3><blockquote class="colorquote info"><p><code>break</code> 意思就是中斷當前所有事情跳出，不管是<code>for</code>還是<code>while</code>都會直接跳出</p>
+</blockquote>
+<blockquote class="colorquote danger"><p><code>break</code> 只會跳出當前迴圈，如果是<code>for</code>迴圈嵌套的話只會跳出最裡面的那一層</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> N = <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; j &lt; N; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j == <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      std::cout &lt;&lt; <span class="string">&quot;(i,j):(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;)\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;after loop (&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;) the value of j is :&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote class="colorquote warning"><p>為什麼這邊的<code>if</code>不用大括號</p>
+</blockquote>
+<blockquote class="colorquote success"><details>
+<summary>減少程式長度的小tips</summary>
+  如果 <code>if</code>, <code>for</code>底下的內容<b>只有一行</b>，那麼大括號可以省略
+</details></blockquote>
+<p><strong>輸出</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(i,j):(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">(i,j):(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line"><span class="function">after <span class="title">loop</span> <span class="params">(<span class="number">0</span>)</span> the value of j is :<span class="number">2</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">1</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">1</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">1</span>) the value of j is :<span class="number">2</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">2</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">2</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">2</span>) the value of j is :<span class="number">2</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">3</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">3</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">3</span>) the value of j is :<span class="number">2</span></span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a><code>continue</code></h3><blockquote class="colorquote info"><p><code>continue</code>的意思就是結束當前迴圈內的事情並且跳到結尾，以<code>for</code>來講就是會跳到<code>生活天數++</code></p>
+</blockquote> 
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> N = <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; j &lt; N; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j == <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">continue</span>; </span><br><span class="line">      std::cout &lt;&lt; <span class="string">&quot;(i,j):(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;)\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;after loop (&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;) the value of j is :&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>輸出</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(i,j):(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">(i,j):(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">(i,j):(<span class="number">0</span>,<span class="number">3</span>)</span><br><span class="line"><span class="function">after <span class="title">loop</span> <span class="params">(<span class="number">0</span>)</span> the value of j is :<span class="number">4</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">1</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">1</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">1</span>,<span class="number">3</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">1</span>) the value of j is :<span class="number">4</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">2</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">2</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">2</span>,<span class="number">3</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">2</span>) the value of j is :<span class="number">4</span></span></span><br><span class="line"><span class="function">(i,j):(<span class="number">3</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">3</span>,<span class="number">1</span>)</span></span><br><span class="line"><span class="function">(i,j):(<span class="number">3</span>,<span class="number">3</span>)</span></span><br><span class="line"><span class="function">after loop (<span class="number">3</span>) the value of j is :<span class="number">4</span></span></span><br></pre></td></tr></table></figure></p>
+<blockquote class="colorquote warning"><p>如果我把<code>if( j == 2 )</code> 換成 <code>if( j &gt;= 2)</code> 會發生什麼事情，請自行試試看</p>
+</blockquote>
+<hr>
+<h2 id="for-while-的相互轉換"><a href="#for-while-的相互轉換" class="headerlink" title="for/while 的相互轉換"></a>for/while 的相互轉換</h2><p>既然都是回圈，那<code>for</code>跟<code>while</code>是否可以互相轉換呢？<br>答案是可以的，請自行練習</p>
+<hr>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a503">a503</a></p>
+<details>
+<summary>答案</summary>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> N;</span><br><span class="line">  <span class="keyword">while</span> (cin &gt;&gt; N) &#123;</span><br><span class="line">    <span class="keyword">if</span> (N &lt;= <span class="number">0</span>) &#123; <span class="comment">// if( N &lt;= 0 || N &gt;= 30)</span></span><br><span class="line">      cout &lt;&lt; <span class="string">&quot;阿!不是說好N要大於零!&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (N &gt; <span class="number">30</span>) &#123;</span><br><span class="line">      cout &lt;&lt; <span class="string">&quot;N太大不想算!!&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i != N) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&#x27;+&#x27;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&#x27;=&#x27;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<hr>
+<h2 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h2><p><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a191">a191</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a192">a192</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a193">a193</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a028">a028</a><br><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a030">a030</a></p>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>已知<code>windows</code>中 <code>Sleep(1000)</code>可以暫停一秒，<code>system(&quot;cls&quot;)</code>可以清除整個螢幕</p>
+<h3 id="範例（往右走的星星"><a href="#範例（往右走的星星" class="headerlink" title="範例（往右走的星星)"></a>範例（往右走的星星)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;window.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> n = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; ++j)</span><br><span class="line">      cout &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;*&#x27;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">sleep</span>(<span class="number">300</span>); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>成果</p>
+<center>
+<video type='video/mov' controls='controls' src="../video/basic/single_left.mov" width="80%" ></video></center>
+
+<h3 id="第一題"><a href="#第一題" class="headerlink" title="第一題"></a>第一題</h3><p>嘗試讓<code>星星</code>走的距離變成兩倍，並且速度也快兩倍<br><blockquote class="colorquote info"><p>請儘量自己寫，建議可以把 <code>int main</code>裡面的函數都刪掉</p>
+</blockquote></p>
+<h3 id="第三題"><a href="#第三題" class="headerlink" title="第三題"></a>第三題</h3><p>做出一個往右下角走的<code>星星</code></p>
+<h3 id="第二題"><a href="#第二題" class="headerlink" title="第二題"></a>第二題</h3><p>可以讓由上到下<code>10</code>個星星，每個星星每隔<code>0.5</code>秒出發嗎</p>
+<h3 id="挑戰題"><a href="#挑戰題" class="headerlink" title="挑戰題"></a>挑戰題</h3><p>嘗試透過<code>wasd</code>控制<code>星星</code>移動</p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: While 開始
+cond1=>condition: 條件
+op1=>operation: 當條件成立時執行
+ed=>end: 結束
+
+
+st->cond1
+cond1(yes)->op1(left)->cond1
+cond1(no)->ed</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 在肚子里
+ed=>end: 死亡
+op_burn=>operation: 出生
+cond_die=>condition: 是否死亡
+op_live_date=>operation: 生活天數++
+op_daily=>operation: 每天生活
+
+
+st(bottom)->op_burn->cond_die
+cond_die(no, bottom)->op_daily
+op_daily->op_live_date(left)->cond_die
+cond_die(yes, right)->ed</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
+
+</article>
+
+<div id="paginator">
+  
+</div>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="w"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>william</div>
+      <div>2024-05-03</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+    <script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
+

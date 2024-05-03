@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Hexo
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/colorquote.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>HEXO</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h1 id="c-基礎語法"><a href="#c-基礎語法" class="headerlink" title="c++ 基礎語法"></a>c++ 基礎語法</h1><ul>
+<li><a href="/basic/basic_info">basic info</a></li>
+<li><a href="/basic/data_type">data type</a></li>
+<li><a href="/basic/if_statement">if statments</a></li>
+<li><a href="/basic/loop_statement">loop statements</a></li>
+</ul>
+<h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
+<li>function </li>
+<li>struct/class</li>
+</ul>
+<h1 id="c-基礎演算法"><a href="#c-基礎演算法" class="headerlink" title="c++ 基礎演算法"></a>c++ 基礎演算法</h1><ul>
+<li>sort (排序法)</li>
+<li>binary serch(二分搜尋法)</li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<article id="page">
+  <h1></h1>
+  <hr>
+<h2 id="author-william"><a href="#author-william" class="headerlink" title="author: william"></a>author: william</h2><h1 id="c-介紹"><a href="#c-介紹" class="headerlink" title="c++ 介紹"></a>c++ 介紹</h1><hr>
+<h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><p>就像每個語言都有各自的語法一樣，<code>c++</code>也有自己的語法</p>
+<p>先來看一個基本的程式碼</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a;  \\這是注釋</span><br><span class="line">  std::cin &gt;&gt; a;</span><br><span class="line">  a += <span class="number">2</span>;</span><br><span class="line">  std::cout &lt;&lt; <span class="string">&quot;hello, world\n&quot;</span>;</span><br><span class="line">  std::cout &lt;&lt; <span class="string">&quot;the number of a+2 is:&quot;</span> &lt;&lt; a;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  這是一個可以覆蓋多行的注釋</span></span><br><span class="line"><span class="comment">  我可以很多行喔</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到  </p>
+<ul>
+<li>第一行有一個<code>#include&lt;...&gt;</code></li>
+<li>所以的操作都在<code>int main</code>內</li>
+<li>每一行都有<code>;</code> 結束</li>
+<li>一些特別的字元有 <code>std::</code>, ex:<code>std::cin</code>, <code>std::cout</code></li>
+<li>注釋使用的是<code>//</code>(單行)和<code>/* */</code>(多行)</li>
+</ul>
+<p>這邊就有一個問題了</p>
+<blockquote class="colorquote warning"><p><code>a</code> 是什麼?</p>
+</blockquote>
+<blockquote class="colorquote info"><p><code>a</code> 是一個變量，在第三行中可以看到他是一個<code>int</code>的變量。<br>有關於<code>int</code>的內容，會在之後提到</p>
+</blockquote>
+<blockquote class="colorquote warning"><p><code>#include</code>是什麼？</p>
+</blockquote>
+<blockquote class="colorquote info"><p><code>#include</code>可以引入由其他人幫我們寫好的程式碼，站在巨人的肩膀上來使用</p>
+</blockquote>
+<blockquote class="colorquote warning"><p><code>std::</code> 是什麼，<code>std::</code>大部分<code>#incldue</code>進來的函數前面都需要加上，你可以把他想成地址，<code>#include</code>進來的都在<code>std</code>這個地方內，如果以後想要自己做屬於自己的函式庫，你就可以實作在<code>mycode::</code>這個地方。</p>
+<p>但是為了方便我們通常使用 <code>using namespace std;</code>讓我們可以不用每次都輸入<code>std::</code><br>因此如上的程式碼會長這樣</p>
+<details>
+  <summary><b>Code</b></summary>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a; </span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    a += <span class="number">2</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;hello, world\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the number of a+2 is:&quot;</span> &lt;&lt; a;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</details></blockquote>
+<h2 id="輸入輸出"><a href="#輸入輸出" class="headerlink" title="輸入輸出"></a>輸入輸出</h2><p>使用<code>cin</code>, <code>cout</code> 即可和程式碼進行互動<br>對於一些比較特別的符號進行說明</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;this is \\n&quot;</span></span><br><span class="line">       &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; <span class="comment">// 如果是\(反斜線,又稱跳脫字元）想要輸出的話需要打兩個反斜線</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;abc&quot;</span> &lt;&lt; endl; <span class="comment">// endl 的作用跟 &#x27;\n&#x27; 一樣</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;\&quot;\&quot;也需要反斜線來輸出&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;\&quot;\&quot;裡面可以放很多單字&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; <span class="comment">// &quot;&quot; =&gt; string(任意長度)</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&#x27;1&#x27;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;                      <span class="comment">// &#x27; &#x27; =&gt; char(單個長度)</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;\&#x27;裡面只能放一個&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article>
+
+<div id="paginator">
+  
+</div>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="w"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>william kuo</div>
+      <div>2024-05-03</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+    <script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
+

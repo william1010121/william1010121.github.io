@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Hexo
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/colorquote.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>HEXO</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h1 id="c-基礎語法"><a href="#c-基礎語法" class="headerlink" title="c++ 基礎語法"></a>c++ 基礎語法</h1><ul>
+<li><a href="/basic/basic_info">basic info</a></li>
+<li><a href="/basic/data_type">data type</a></li>
+<li><a href="/basic/if_statement">if statments</a></li>
+<li><a href="/basic/loop_statement">loop statements</a></li>
+</ul>
+<h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
+<li>function </li>
+<li>struct/class</li>
+</ul>
+<h1 id="c-基礎演算法"><a href="#c-基礎演算法" class="headerlink" title="c++ 基礎演算法"></a>c++ 基礎演算法</h1><ul>
+<li>sort (排序法)</li>
+<li>binary serch(二分搜尋法)</li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<article id="page">
+  <h1></h1>
+  <h1 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h1><h2 id="各種資料型態"><a href="#各種資料型態" class="headerlink" title="各種資料型態"></a>各種資料型態</h2><blockquote class="colorquote info"><details>
+  <summary>資料型態</summary>
+<style>
+.wikitable {
+  background-color: #e0e0e0;
+  border-collapse: collapse;
+
+  tr:nth-of-type(even) td{
+    background-color:#f3f3f3;
+  }
+}
+</style>
+
+
+<table class="wikitable"> <tbody><tr> <th>關鍵字</th> <th><a href="/wiki/%E5%AD%97%E8%8A%82" title="位元組">位元組（位元組）</a></th> <th>範圍</th> <th>格式化字串</th> <th>硬體層面的類型</th> <th>備註 </th></tr> <tr> <td><code>char</code></td> <td>1bytes</td> <td>通常為-128至127或0至255，與體系結構相關</td> <td>%c </td> <td>位元組(Byte) </td> <td>大多數情況下即<code>signed char；</code> <p>在極少數1byte&nbsp;!= 8bit或不使用ASCII字元集的機器類型上範圍可能會更大或更小。其它類型同理。 </p> </td></tr> <tr> <td><code>unsigned char</code></td> <td>1bytes</td> <td>通常為0至255</td> <td>%c、%hhu </td> <td>位元組 </td> <td> </td></tr> <tr> <td><code>signed char</code></td> <td>1bytes</td> <td>通常為-128至127</td> <td>%c、%hhd、%hhi </td> <td>位元組 </td> <td> </td></tr> <tr> <td><code>int</code></td> <td>2bytes(16位元系統) 或<br>4bytes </td> <td>-32768至32767或<br>-2147483648至2147483647</td> <td>%i、%d </td> <td>字(Word)或雙字(Double Word) </td> <td>即<code>signed int</code>(但用於bit-field時，int可能被視為signed int，也可能被視為unsigned int) </td></tr> <tr> <td><code>unsigned int</code></td> <td>2bytes 或<br>4bytes</td> <td>0至65535 或<br>0至4294967295</td> <td>%u </td> <td>字或雙字 </td> <td> </td></tr> <tr> <td><code>signed int</code></td> <td>2bytes 或<br>4bytes </td> <td>-32768至32767 或<br>-2147483648至2147483647</td> <td>%i、%d </td> <td>字或雙字 </td> <td> </td></tr> <tr> <td><code>short int</code></td> <td>2bytes</td> <td>-32768至32767</td> <td>%hi、%hd </td> <td>字 </td> <td>即<code>signed short</code> </td></tr> <tr> <td><code>unsigned short</code></td> <td>2bytes</td> <td>0至65535</td> <td>%hu </td> <td>字 </td> <td> </td></tr> <tr> <td><code>signed short</code></td> <td>2bytes</td> <td>-32768至32767</td> <td>%hi、%hd </td> <td>字 </td> <td> </td></tr> <tr> <td><code>long int</code></td> <td>4bytes 或<br>8bytes<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></td> <td>-2147483648至2147483647 或<br>-9223372036854775808至9223372036854775807</td> <td>%li、%ld </td> <td>長整數(Long Integer) </td> <td>即<code>signed long</code> </td></tr> <tr> <td><code>unsigned long</code></td> <td>4bytes 或<br>8bytes</td> <td>0至4294967295 或<br>0至18446744073709551615</td> <td>%lu </td> <td>整數(Unsigned Integer)或 <p>長整數(Unsigned Long Integer) </p> </td> <td>依賴於實現 </td></tr> <tr> <td><code>signed long</code></td> <td>4bytes或<br>8bytes</td> <td>-2147483648至2147483647 或<br>-9223372036854775808至9223372036854775807</td> <td>%li、%ld </td> <td>整數(Signed Integer)或 <p>長整數(Signed Long Integer) </p> </td> <td>依賴於實現 </td></tr> <tr> <td><code>long long</code></td> <td>8bytes</td> <td>-9223372036854775808至9223372036854775807</td> <td>%lli、%lld </td> <td>長整數(Long Integer) </td> <td> </td></tr> <tr> <td><code>unsigned long long</code></td> <td>8bytes</td> <td>0至18446744073709551615</td> <td>%llu </td> <td>長整數(Unsigned Long Integer) </td> <td> </td></tr> <tr> <td><code>float</code></td> <td>4bytes</td> <td>2.939x10<sup>−38</sup>至3.403x10<sup>+38</sup> (7 sf)</td> <td>%f、%e、%g </td> <td>浮點數(Float) </td> <td> </td></tr> <tr> <td><code>double</code></td> <td>8bytes</td> <td>5.563x10<sup>−309</sup>至1.798x10<sup>+308</sup> (15 sf)</td> <td>%lf、%e、%g </td> <td>雙精度浮點型(Double Float) </td> <td> </td></tr> <tr> <td><code>long double</code></td> <td>10bytes或<br>16bytes</td> <td>7.065x10<sup>-9865</sup>至1.415x10<sup>9864</sup> (18 sf或33 sf)</td> <td>%lf、%le、%lg </td> <td>雙精度浮點型(Double Float) </td> <td>在大多數平台上的實現與<code>double</code>相同，實現由編譯器定義。 </td></tr> <tr> <td><code>_Bool</code> </td> <td>1byte </td> <td>0或1 </td> <td>%i、%d </td> <td>布林型(Boolean) </td> <td> </td></tr></tbody></table>
+
+
+</details>
+
+<p>(from <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%28C%E8%AF%AD%E8%A8%80%29">wiki</a>)</p>
+</blockquote>
+<blockquote class="colorquote success"><p>只需要知道</p>
+<p><code>int</code>、<code>long long</code>都是整數<br><code>int</code>範圍為 $\approx \pm 2^{31} \approx \pm 2\times10^9 $<br><code>long long</code> $\approx \pm 2^{63} \approx \pm 8\times 10^{18}$</p>
+<p><code>double</code> 、<code>float</code>都是浮點數，<code>double</code>比<code>float</code>準確</p>
+</blockquote>
+<h2 id="基本運算"><a href="#基本運算" class="headerlink" title="基本運算"></a>基本運算</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a0 = <span class="number">8</span>, a1 = <span class="number">3</span>;</span><br><span class="line">  <span class="type">float</span> b0 = <span class="number">8.0</span>, b1 = <span class="number">3.0</span>;</span><br><span class="line">  <span class="comment">//或著你想要嘗試輸入</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; a0 &gt;&gt; a1;</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; b0 &gt;&gt; b1;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 + a1=&quot;</span> &lt;&lt; a0+a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 - a1=&quot;</span> &lt;&lt; a0-a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 * a1=&quot;</span> &lt;&lt; a0*a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 / a1=&quot;</span> &lt;&lt; a0/a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 % a1=&quot;</span> &lt;&lt; a0%a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 + b1=&quot;</span> &lt;&lt; b0+b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 - b1=&quot;</span> &lt;&lt; b0-b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 * b1=&quot;</span> &lt;&lt; b0*b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 / b1=&quot;</span> &lt;&lt; b0/b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a0 + a1=11</span><br><span class="line">a0 - a1=5</span><br><span class="line">a0 * a1=24</span><br><span class="line">a0 / a1=2</span><br><span class="line">a0 % a1=2</span><br><span class="line">b0 + b1=11</span><br><span class="line">b0 - b1=5</span><br><span class="line">b0 * b1=24</span><br><span class="line">b0 / b1=2.66667</span><br></pre></td></tr></table></figure>
+<blockquote class="colorquote warning"><p>發現了什麼</p>
+</blockquote>
+<blockquote class="colorquote info"><p><strong>整數型態的除法和浮點數型態的除法不一樣</strong></p>
+<details>
+<summary>差異在哪</summary>
+  <b>整數的只會算到整數位，其餘捨棄</b>
+</details></blockquote>
+<p>所以我們有<br><blockquote class="colorquote success"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a/b + a%b = a</span><br></pre></td></tr></table></figure></blockquote></p>
+
+</article>
+
+<div id="paginator">
+  
+</div>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="w"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>william</div>
+      <div>2024-05-03</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+    <script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
+
