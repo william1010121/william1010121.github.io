@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/basic/data_type">data type</a></li>
 <li><a href="/basic/if_statement">if statments</a></li>
 <li><a href="/basic/loop_statement">loop statements</a></li>
+<li><a href="/basic/array">array</a></li>
 </ul>
 <h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
 <li>function </li>
@@ -135,7 +136,10 @@ function sidebar_toggle() {
           
 <article id="page">
   <h1></h1>
-  <h1 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h1><h2 id="各種資料型態"><a href="#各種資料型態" class="headerlink" title="各種資料型態"></a>各種資料型態</h2><blockquote class="colorquote info"><details>
+  <h1 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h1><hr>
+<h2 id="宣告方式"><a href="#宣告方式" class="headerlink" title="宣告方式"></a>宣告方式</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">資料型態 資料名稱(可以任意取名) = 初始化的值(可以不取);</span><br><span class="line"><span class="type">int</span> YES = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line">string str = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"><span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> sum = <span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="各種資料型態"><a href="#各種資料型態" class="headerlink" title="各種資料型態"></a>各種資料型態</h2><blockquote class="colorquote info"><details>
   <summary>資料型態</summary>
 <style>
 .wikitable {
@@ -158,8 +162,9 @@ function sidebar_toggle() {
 </blockquote>
 <blockquote class="colorquote success"><p>只需要知道</p>
 <p><code>int</code>、<code>long long</code>都是整數<br><code>int</code>範圍為 $\approx \pm 2^{31} \approx \pm 2\times10^9 $<br><code>long long</code> $\approx \pm 2^{63} \approx \pm 8\times 10^{18}$</p>
-<p><code>double</code> 、<code>float</code>都是浮點數，<code>double</code>比<code>float</code>準確</p>
+<p><code>double</code> 、<code>float</code>都是浮點數，<code>double</code>比<code>float</code>準確<br><code>string</code>其實是<code>char</code>陣列</p>
 </blockquote>
+<hr>
 <h2 id="基本運算"><a href="#基本運算" class="headerlink" title="基本運算"></a>基本運算</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a0 = <span class="number">8</span>, a1 = <span class="number">3</span>;</span><br><span class="line">  <span class="type">float</span> b0 = <span class="number">8.0</span>, b1 = <span class="number">3.0</span>;</span><br><span class="line">  <span class="comment">//或著你想要嘗試輸入</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; a0 &gt;&gt; a1;</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; b0 &gt;&gt; b1;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 + a1=&quot;</span> &lt;&lt; a0+a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 - a1=&quot;</span> &lt;&lt; a0-a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 * a1=&quot;</span> &lt;&lt; a0*a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 / a1=&quot;</span> &lt;&lt; a0/a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 % a1=&quot;</span> &lt;&lt; a0%a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 + b1=&quot;</span> &lt;&lt; b0+b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 - b1=&quot;</span> &lt;&lt; b0-b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 * b1=&quot;</span> &lt;&lt; b0*b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 / b1=&quot;</span> &lt;&lt; b0/b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>輸出</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a0 + a1=11</span><br><span class="line">a0 - a1=5</span><br><span class="line">a0 * a1=24</span><br><span class="line">a0 / a1=2</span><br><span class="line">a0 % a1=2</span><br><span class="line">b0 + b1=11</span><br><span class="line">b0 - b1=5</span><br><span class="line">b0 * b1=24</span><br><span class="line">b0 / b1=2.66667</span><br></pre></td></tr></table></figure>
@@ -171,6 +176,8 @@ function sidebar_toggle() {
   <b>整數的只會算到整數位，其餘捨棄</b>
 </details></blockquote>
 <p>所以我們有<br><blockquote class="colorquote success"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a/b + a%b = a</span><br></pre></td></tr></table></figure></blockquote></p>
+<hr>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">0</span>; <span class="comment">//這個就是初始化</span></span><br><span class="line">string str = <span class="string">&quot;&quot;</span>;</span><br></pre></td></tr></table></figure>
 
 </article>
 
@@ -201,7 +208,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>william</div>
-      <div>2024-05-03</div>
+      <div>2024-05-04</div>
     </div>
   </div>
 

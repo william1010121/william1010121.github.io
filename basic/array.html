@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Hexo
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/colorquote.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>HEXO</span>
+  </a>
+</div>
+    <div id="menu" class="book-menu hide">
+  <h1 id="c-基礎語法"><a href="#c-基礎語法" class="headerlink" title="c++ 基礎語法"></a>c++ 基礎語法</h1><ul>
+<li><a href="/basic/basic_info">basic info</a></li>
+<li><a href="/basic/data_type">data type</a></li>
+<li><a href="/basic/if_statement">if statments</a></li>
+<li><a href="/basic/loop_statement">loop statements</a></li>
+<li><a href="/basic/array">array</a></li>
+</ul>
+<h1 id="c-進階語法"><a href="#c-進階語法" class="headerlink" title="c++ 進階語法"></a>c++ 進階語法</h1><ul>
+<li>function </li>
+<li>struct/class</li>
+</ul>
+<h1 id="c-基礎演算法"><a href="#c-基礎演算法" class="headerlink" title="c++ 基礎演算法"></a>c++ 基礎演算法</h1><ul>
+<li>sort (排序法)</li>
+<li>binary serch(二分搜尋法)</li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          
+<article id="page">
+  <h1></h1>
+  <h1 id="陣列-array"><a href="#陣列-array" class="headerlink" title="陣列(array)"></a>陣列(array)</h1><hr>
+<h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">型態 陣列名字（任意取）[大小]</span><br><span class="line"><span class="type">int</span> arr0[<span class="number">30</span>];</span><br><span class="line"><span class="type">float</span> arr1[<span class="number">30</span>];</span><br><span class="line"><span class="type">double</span> YYEYEY[<span class="number">45</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="初始化重點-少走十年彎路"><a href="#初始化重點-少走十年彎路" class="headerlink" title="初始化重點!!(少走十年彎路)"></a>初始化<p style="color:red; font-weight: bold;">重點!!(少走十年彎路)</p></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> N; cin &gt;&gt; N;</span><br><span class="line">  <span class="type">int</span> arr[N];</span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i )</span><br><span class="line">    arr[i] = <span class="number">2</span>*i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><blockquote class="colorquote info"><p>陣列的大小是$N$，但是取值是從$arr[0], arr[1], arr[2], \dots , arr[N-1]$(<code>0-base</code>)</p>
+</blockquote>
+<hr>
+<h2 id="陣列需要注意的事項"><a href="#陣列需要注意的事項" class="headerlink" title="陣列需要注意的事項"></a>陣列需要注意的事項</h2><blockquote class="colorquote warning"><p>為什麼要用陣列</p>
+</blockquote>
+<blockquote class="colorquote info"><p>因為這樣子就不用設定一堆變數(<code>a0</code>, <code>a1</code>, <code>a2</code> $\dots$ <code>aN</code>)</p>
+</blockquote>
+<blockquote class="colorquote danger"><p>  <code>int arr[N]</code>可以聲明有以下兩個條件<br>$1.$ <code>N</code> 要先宣告(要有值)<br>$2.$ <code>N</code>不能太大<br>$3.$ 通常不建議這樣做，尤其是是在學過<code>vector</code>之後</p>
+</blockquote>
+<blockquote class="colorquote danger"><p>所有陣列都記得要<code>初始化</code></p>
+</blockquote>
+<hr>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a168">a168</a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> N;</span><br><span class="line">  cin &gt;&gt; N;</span><br><span class="line">  string str[N];</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">    cin &gt;&gt; str[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> pos;</span><br><span class="line">  cin &gt;&gt; pos;</span><br><span class="line">  --pos; <span class="comment">// 0-base</span></span><br><span class="line">  cout &lt;&lt; str[pos] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote class="colorquote danger"><p><code>0-base</code>很重要</p>
+</blockquote>
+<hr>
+<h2 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a188">a188</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a699">a699</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a005">a005</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a830">a830</a></li>
+</ul>
+
+</article>
+
+<div id="paginator">
+  
+</div>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="w"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>william kuo</div>
+      <div>2024-05-04</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+    <script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
+
