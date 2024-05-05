@@ -230,8 +230,10 @@ function sidebar_toggle() {
 </g>
 </g>
 </svg></p>
-<p><code>double</code> 、<code>float</code>都是浮點數，<code>double</code>比<code>float</code>準確<br><code>string</code>其實是<code>char</code>陣列</p>
-</blockquote>
+<p><blockquote class="colorquote info"><p>其實也不用特別記，<code>INT_MIN</code>、<code>INT_MAX</code>就可以知道值</p>
+</blockquote></p>
+<p><p><code>double</code> 、<code>float</code>都是浮點數，<code>double</code>比<code>float</code>準確<br><code>string</code>其實是<code>char</code>陣列<br></p>
+</blockquote></p>
 <hr>
 <h2 id="基本運算"><a href="#基本運算" class="headerlink" title="基本運算"></a>基本運算</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a0 = <span class="number">8</span>, a1 = <span class="number">3</span>;</span><br><span class="line">  <span class="type">float</span> b0 = <span class="number">8.0</span>, b1 = <span class="number">3.0</span>;</span><br><span class="line">  <span class="comment">//或著你想要嘗試輸入</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; a0 &gt;&gt; a1;</span></span><br><span class="line"><span class="comment">    cin &gt;&gt; b0 &gt;&gt; b1;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 + a1=&quot;</span> &lt;&lt; a0+a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 - a1=&quot;</span> &lt;&lt; a0-a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 * a1=&quot;</span> &lt;&lt; a0*a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 / a1=&quot;</span> &lt;&lt; a0/a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;a0 % a1=&quot;</span> &lt;&lt; a0%a1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 + b1=&quot;</span> &lt;&lt; b0+b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 - b1=&quot;</span> &lt;&lt; b0-b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 * b1=&quot;</span> &lt;&lt; b0*b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;b0 / b1=&quot;</span> &lt;&lt; b0/b1 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>輸出</p>
@@ -243,7 +245,7 @@ function sidebar_toggle() {
 <summary>差異在哪</summary>
   <b>整數的只會算到整數位，其餘捨棄</b>
 </details></blockquote>
-<p>所以我們有<br><blockquote class="colorquote success"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a/b + a%b = a</span><br></pre></td></tr></table></figure></blockquote></p>
+<p>所以我們有<br><blockquote class="colorquote success"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b*(a/b) + a%b = a</span><br></pre></td></tr></table></figure></blockquote></p>
 <hr>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">0</span>; <span class="comment">//這個就是初始化</span></span><br><span class="line">string str = <span class="string">&quot;&quot;</span>;</span><br></pre></td></tr></table></figure>
 
@@ -276,7 +278,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>william</div>
-      <div>2024-05-04</div>
+      <div>2024-05-05</div>
     </div>
   </div>
 
