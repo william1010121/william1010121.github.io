@@ -15,6 +15,10 @@
         
     </title>
 
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <!-- Spectre.css framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
@@ -274,15 +278,135 @@ function sidebar_toggle() {
 <li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a005">a005</a></li>
 <li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a830">a830</a></li>
 </ul>
+<h2 id="練習題2"><a href="#練習題2" class="headerlink" title="練習題2"></a>練習題2</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a707">a707</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a839">a839</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a959">a959</a><blockquote class="colorquote info"><details>
+  <summary>提示</summary>
+    可以直接開一個大小為<code>1001</code>的陣列來紀錄是否有交作業
+</details></blockquote> 
+</li>
+</ul>
 <hr>
 <h2 id="二維陣列-多維陣列"><a href="#二維陣列-多維陣列" class="headerlink" title="二維陣列/多維陣列"></a>二維陣列/多維陣列</h2><h3 id="什麼是二維陣列"><a href="#什麼是二維陣列" class="headerlink" title="什麼是二維陣列"></a>什麼是二維陣列</h3><p>陣列其實就像是一個火車，火車有以下性質</p>
 <ol>
 <li>火車是從<code>0</code>開始</li>
-<li>火車車廂內可以裝任何東西（但所有車廂需要同一類型ex: <code>int</code>, <code>float</code>, <code>double</code>, <div style="color:red"></div>）</li>
+<li>火車車廂內可以裝任何東西（但所有車廂需要同一類型ex: <code>int</code>, <code>float</code>, <code>double</code>, <span style="color:red"><b>陣列!!</b></span>）</li>
 </ol>
 <p>其實從<code>2.</code>就可以發現，在陣列裡面塞一個陣列其實是可以的</p>
+<p>先來看一下一維陣列</p>
+<blockquote class="colorquote info"><p><center>一維陣列 <code>Type ar[3]</code></center></p>
+<table class="table table-hover table-striped-columns" id = '1dtable'>
+</table></blockquote>
+<blockquote class="colorquote info"><p><center>二維陣列 <code>int arr[3][8]</code></center></p>
+<table class="table table-hover table-striped-columns" id='2dtable'>
+</table></blockquote>
+<p>其實<code>二維陣列</code>就只是<code>一維陣列</code>裡面的每一項都是<code>一維陣列</code>，所以當你取了<code>arr[1]</code>，之後，把他當成一個<code>int [8]</code>的陣列就可以了。</p>
 <hr>
-<h2 id="實作題"><a href="#實作題" class="headerlink" title="實作題"></a>實作題</h2><h3 id="簡易繪圖"><a href="#簡易繪圖" class="headerlink" title="簡易繪圖"></a>簡易繪圖</h3>
+<h2 id="練習題-1"><a href="#練習題-1" class="headerlink" title="練習題"></a>練習題</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a951">a951</a></li>
+<li><a target="_blank" rel="noopener" href="https://dandanjudge.fdhs.tyc.edu.tw/ShowProblem?problemid=a830">a830</a></li>
+</ul>
+<script>
+function createTable(ID, rows, cols) {
+  const table = document.getElementById(ID);
+  const headerRow = table.insertRow();
+  const emptyHeader = document.createElement("th");
+  emptyHeader.innerHTML = '';
+  headerRow.appendChild(emptyHeader)
+  for( let i  = 1; i <= cols; ++i ) {
+    const headerCell = document.createElement("th")
+    headerCell.innerHTML  = i-1
+    headerRow.appendChild(headerCell);
+  }
+
+  for( let i = 1; i <= rows; i++ ) {
+    const row = table.insertRow();
+    const rowHeaderCell = document.createElement("th")
+    rowHeaderCell.innerHTML = i-1;
+    row.appendChild(rowHeaderCell);
+    for( let j = 1; j <= cols; j++ ) {
+      const cell = row.insertCell();
+      cell.textContent = "arr[" + (i-1).toString() + "]" +`[${j-1}]` 
+    }
+  }
+}
+function create1Dtable(ID, rows) {
+  const table = document.getElementById(ID);
+  for( let i = 0; i < rows; ++i ) {
+    const row = table.insertRow();
+    const rowHeaderCell = document.createElement("th");
+    rowHeaderCell.innerHTML = `${i}`;
+    row.appendChild(rowHeaderCell);
+    const cell = row.insertCell();
+    cell.innerHTML = `ar[${i}]`
+  }
+}
+createTable("2dtable", 3, 8);
+create1Dtable("1dtable", 3);
+</script>
+
+
+<hr>
+<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><hr>
+<h1 id="音樂"><a href="#音樂" class="headerlink" title="音樂"></a>音樂</h1><details>
+  <summary>程式碼</summary>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;random&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">double</span> two_pi = <span class="number">6.283185307179586476925286766559</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">WavFile</span> &#123;</span><br><span class="line">  <span class="type">const</span> <span class="type">char</span> *file_name;</span><br><span class="line">  ofstream f;</span><br><span class="line">  <span class="type">size_t</span> data_chunk_pos;</span><br><span class="line">  <span class="type">int</span> sample_frequence;</span><br><span class="line">  <span class="type">int</span> max_amplitude;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Word&gt;</span><br><span class="line">  <span class="function">std::ostream &amp;<span class="title">write_word</span><span class="params">(std::ostream &amp;outs, Word Value,</span></span></span><br><span class="line"><span class="params"><span class="function">                           <span class="type">unsigned</span> size = <span class="keyword">sizeof</span>(Word))</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; size; --size, Value &gt;&gt;= <span class="number">8</span>) &#123;</span><br><span class="line">      outs.<span class="built_in">put</span>(<span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(Value &amp; <span class="number">0xff</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> outs;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123; f.<span class="built_in">open</span>(file_name, ios::binary); &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">const</span> <span class="type">int</span> sample_freq = <span class="number">44100</span>, <span class="type">const</span> <span class="type">int</span> block_alignment = <span class="number">4</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">const</span> <span class="type">int</span> bit_per_sample = <span class="number">16</span>)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">open</span>();</span><br><span class="line">    sample_frequence = sample_freq;</span><br><span class="line">    f &lt;&lt; <span class="string">&quot;RIFF----WAVEfmt &quot;</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> size_of_WAV_section_chunk = <span class="number">16</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> WAV_type_format = <span class="number">0x01</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> type_flag = <span class="number">0x02</span>; <span class="comment">// mono 0x01, stereo 0x02</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> bytes_per_sec = <span class="number">176400</span>;</span><br><span class="line">    <span class="built_in">write_word</span>(f, size_of_WAV_section_chunk, <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, WAV_type_format, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, type_flag, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, sample_freq, <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, bytes_per_sec, <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, block_alignment, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, bit_per_sample, <span class="number">2</span>);</span><br><span class="line">    data_chunk_pos = f.<span class="built_in">tellp</span>();</span><br><span class="line">    f &lt;&lt; <span class="string">&quot;data----&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">add_sound_freq</span><span class="params">(<span class="type">double</span> freq, <span class="type">double</span> second)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> N = sample_frequence * second;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">0</span>; n &lt; N; ++n) &#123;</span><br><span class="line">      <span class="type">double</span> amplitude = (<span class="type">double</span>)n / N * max_amplitude;</span><br><span class="line">      <span class="type">double</span> value = <span class="built_in">sin</span>((two_pi * n * freq) / sample_frequence);</span><br><span class="line">      <span class="built_in">write_word</span>(f, (<span class="type">int</span>)(amplitude * value), <span class="number">2</span>);</span><br><span class="line">      <span class="built_in">write_word</span>(f, (<span class="type">int</span>)((max_amplitude - amplitude) * value), <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">add_sound</span><span class="params">(<span class="type">int</span> base, <span class="type">double</span> second)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">add_sound_freq</span>(<span class="built_in">f_trans</span>(base), second);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">double</span> <span class="title">f_trans</span><span class="params">(<span class="type">double</span> p)</span> </span>&#123; <span class="keyword">return</span> <span class="number">440</span> * <span class="built_in">pow</span>(<span class="number">2</span>, (p - <span class="number">69</span>) / <span class="number">12</span>); &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">size_t</span> file_length = f.<span class="built_in">tellp</span>();</span><br><span class="line">    f.<span class="built_in">seekp</span>(data_chunk_pos + <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, file_length - data_chunk_pos + <span class="number">8</span>);</span><br><span class="line">    f.<span class="built_in">seekp</span>(<span class="number">0</span> + <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">write_word</span>(f, file_length - <span class="number">8</span>, <span class="number">4</span>);</span><br><span class="line">    f.<span class="built_in">close</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">WavFile</span>(<span class="type">char</span> *file_name = <span class="string">&quot;example.wav&quot;</span>, <span class="type">int</span> _max_amplitude = <span class="number">32760</span>)</span><br><span class="line">      : <span class="built_in">file_name</span>(file_name) &#123;</span><br><span class="line">    max_amplitude = _max_amplitude;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">mt19937 <span class="title">rd</span><span class="params">(chrono::steady_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">randint</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">uniform_int_distribution</span>&lt;<span class="type">int</span>&gt;(l, r)(rd); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">WavFile <span class="title">wav</span><span class="params">(<span class="string">&quot;abc.wav&quot;</span>)</span></span>;</span><br><span class="line">  wav.<span class="built_in">init</span>();</span><br><span class="line">  <span class="comment">// 60 為 C 大調</span></span><br><span class="line">  <span class="comment">// C4 60 , D4 62, E4 64, F4 65, G4 67, A4 69, B4 71</span></span><br><span class="line">  <span class="comment">// 一個八度是12</span></span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> high[<span class="number">7</span>] = &#123;<span class="number">60</span>, <span class="number">62</span>, <span class="number">64</span>, <span class="number">65</span>, <span class="number">67</span>, <span class="number">69</span>, <span class="number">71</span>&#125;;</span><br><span class="line">  <span class="type">float</span> tm[<span class="number">7</span>] = &#123;<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; ++i) &#123;</span><br><span class="line">    wav.<span class="built_in">add_sound</span>(high[i], tm[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  wav.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>只要改<code>int main</code>裡面的東西就可以了, <del>其他是我研究的</del></p>
+<hr>
+<h2 id="先找一個自己喜歡的一段音樂"><a href="#先找一個自己喜歡的一段音樂" class="headerlink" title="先找一個自己喜歡的一段音樂"></a>先找一個自己喜歡的一段音樂</h2><p>隨便一段音樂就可以了</p>
+<hr>
+<h2 id="1-讓音樂速度變成兩倍"><a href="#1-讓音樂速度變成兩倍" class="headerlink" title="1.讓音樂速度變成兩倍"></a>1.讓音樂速度變成兩倍</h2><blockquote class="colorquote info"><p>你能在不修改 tm陣列的情況下做到嗎?</p>
+</blockquote>
+<hr>
+<h2 id="2-讓音樂高一個8度"><a href="#2-讓音樂高一個8度" class="headerlink" title="2.讓音樂高一個8度"></a>2.讓音樂高一個8度</h2><blockquote class="colorquote info"><p>你能在不修改 high陣列的情況下做到嗎?</p>
+</blockquote>
+<hr>
+<h2 id="3-請嘗試讓音樂循環播放5次"><a href="#3-請嘗試讓音樂循環播放5次" class="headerlink" title="3.請嘗試讓音樂循環播放5次"></a>3.請嘗試讓音樂循環播放5次</h2><hr>
+<h2 id="4-請重複2次，並且每次高八度"><a href="#4-請重複2次，並且每次高八度" class="headerlink" title="4.請重複2次，並且每次高八度"></a>4.請重複2次，並且每次高八度</h2><p>請分別以以下方法實作</p>
+<div style="font-size: 30px; font-weight:bold">
+
+&emsp; <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">1</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-GYREPAGELLAMAIN-31" d="M418 -3l-157 3l-165 -3v30l56 3c54 3 65 14 65 66v485c0 24 -2 33 -8 33l-3 -1l-129 -58h-10l-7 43c91 32 162 62 227 96l14 -5v-593c0 -52 10 -63 65 -66l52 -3v-30Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-GYREPAGELLAMAIN-31" x="0" y="0"></use>
+</g>
+</svg>. 不修改<code>high</code>陣列  <br>
+&emsp; <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">2</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-GYREPAGELLAMAIN-32" d="M468 -3l-229 3l-223 -3v26l170 181c113 120 155 194 155 269c0 85 -55 139 -141 139c-67 0 -103 -25 -119 -83l-13 -46h-29l17 136c49 50 98 70 170 70c127 0 205 -71 205 -186c0 -75 -30 -130 -127 -233l-182 -193l346 10c-2 -22 -2 -32 -2 -45c0 -14 0 -24 2 -45Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-GYREPAGELLAMAIN-32" x="0" y="0"></use>
+</g>
+</svg>. 請新增加一個<code>tmp</code>陣列，並且每次只用<code>tmp</code>陣列去輸出音高
+
+</div>
+
+<blockquote class="colorquote info"><p>就是只能有<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> high = &#123;...&#125;;</span><br><span class="line"><span class="type">float</span> tm[<span class="number">7</span>] = &#123;...&#125;;</span><br><span class="line"><span class="type">int</span> tmp[<span class="number">7</span>];</span><br><span class="line"><span class="comment">//對tmp做一些操作</span></span><br><span class="line"><span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; ++i  ) &#123;</span><br><span class="line">  wav.<span class="built_in">add_sound</span>(tmp[i], tm[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<div style="font-size: 30px; font-weight:bold">
+&emsp; <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">3</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-GYREPAGELLAMAIN-33" d="M462 224c0 -47 -17 -91 -51 -132c-55 -67 -147 -112 -227 -112c-37 0 -81 8 -134 26c-6 50 -14 86 -35 147l27 10c19 -54 32 -77 56 -99c30 -28 71 -43 117 -43c93 0 154 67 154 169c0 91 -48 144 -131 144c-27 0 -46 -5 -84 -22l-7 6l12 53s39 -3 47 -3 c71 0 130 63 130 138c0 63 -53 116 -118 116c-52 0 -115 -34 -126 -68l-18 -56h-31l29 124c48 48 93 67 161 67c111 0 185 -59 185 -148c0 -59 -30 -105 -110 -167c50 -9 73 -17 98 -35c36 -25 56 -67 56 -115Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-GYREPAGELLAMAIN-33" x="0" y="0"></use>
+</g>
+</svg>. 請把 <code>high</code> 陣列變成二維陣列
+</div>
+
+
+<hr>
+
 </article>
 
 <div id="paginator">
@@ -312,7 +436,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>william kuo</div>
-      <div>2024-05-19</div>
+      <div>2024-05-20</div>
     </div>
   </div>
 
